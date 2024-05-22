@@ -21,7 +21,7 @@ This project aims to classify potato diseases using machine learning techniques.
     jupyter notebook
     ```
 
-2. **Open `potato-disease-training.ipynb` in Jupyter Notebook.**
+2. **Open `training/potato-disease-training.ipynb` in Jupyter Notebook.**
 
 3. **Run all the Cells one by one.**
 
