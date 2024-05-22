@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import numpy as np
 from io import BytesIO
@@ -8,6 +9,18 @@ from keras.layers import TFSMLayer
 
 app = FastAPI()
 
+origins = [
+    "http://localhost",
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 # Load the model
 MODEL_PATH = "../saved_models/1"
 MODEL = TFSMLayer(MODEL_PATH, call_endpoint='serving_default')
@@ -39,7 +52,7 @@ async def predict(file: UploadFile = File(...)):
     confidence = float(np.max(predictions['output_0'][0]))
 
     return {
-        "prediction": predicted_class,
+        "class": predicted_class,
         'confidence' : confidence
     }
 
