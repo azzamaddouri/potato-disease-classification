@@ -87,3 +87,9 @@ This project aims to classify potato diseases using machine learning techniques.
     ```bash
     npm start
     ```
+    
+# Project Video
+
+Discover how to classify potato diseases using machine learning in this demo:
+
+[![Potato Disease Classification](https://img.youtube.com/vi/BUdfdNw9Vj4/0.jpg)](https://youtu.be/BUdfdNw9Vj4)
